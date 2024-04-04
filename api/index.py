@@ -42,7 +42,7 @@ def get_point():
     wallet_address = request.args.get('address','')
     auth_token = request.args.get('auth_token','')
     url = 'https://api.xter.io/palio/v1/user/%s/point' % (wallet_address)
-    resp = requests.get(url,headers={'Authorization': auth_token,},timeout=3)
+    resp = requests.get(url,headers={'Authorization': auth_token,},timeout=10)
     data = json.loads(resp.text)
 
     return jsonify({'data':data.get('data',{})})
